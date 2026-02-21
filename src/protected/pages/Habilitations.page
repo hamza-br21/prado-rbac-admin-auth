@@ -1,0 +1,87 @@
+<com:TContent ID="MainContent">
+    <com:TForm>
+        <h1>Gestion des Habilitations</h1>
+        
+        <!-- Search Section -->
+        <div class="actions">
+            Rechercher : 
+            <com:TTextBox ID="SearchText" />
+
+            <com:TButton Text="Rechercher" CssClass="btn btn-search" OnClick="onSearch" CausesValidation="false" />
+            <com:TButton Text="Tout Afficher" CssClass="btn btn-cancel" OnClick="onResetSearch" CausesValidation="false" />
+            
+        </div>
+
+        <!-- habilitation List -->
+        <com:TDataGrid ID="HabilitationGrid" 
+                       AutoGenerateColumns="false" 
+                       CssClass="datagrid"
+                       DataKeyField="id"
+                       AllowPaging="true"
+                        PageSize="5"
+                        PagerStyle.Mode="Numeric"
+                        PagerStyle.Position="Bottom"
+                        PagerStyle.CssClass="grid-pager"
+                        OnPageIndexChanged="changePage"
+                       OnDeleteCommand="onDelete"
+                       OnEditCommand="onEdit">
+            
+            <com:TBoundColumn DataField="id" HeaderText="ID" ReadOnly="true" />
+            <com:TBoundColumn DataField="label" HeaderText="Label" />
+            <com:TBoundColumn DataField="active" HeaderText="Active" />
+            
+            <com:TTemplateColumn HeaderText="Modifier">
+                    <prop:ItemTemplate>
+                        <com:TButton 
+                            Text="Modifier"
+                            CommandName="edit"
+                            CssClass="btn btn-edit"
+                            Visible="<%# $this->Page->isInProfile('Admin') %>"
+                            CausesValidation="false" />
+                    </prop:ItemTemplate>
+                 </com:TTemplateColumn>
+
+
+                        <com:TTemplateColumn HeaderText="Supprimer">
+                            <prop:ItemTemplate>
+                                <com:TButton 
+                                    Text="Supprimer"
+                                    CommandName="delete"
+                                    CssClass="btn btn-delete"
+                                    Attributes.OnClick="if(!confirm('Êtes-vous sûr ?')) return false;"
+                                    Visible="<%# $this->Page->isInProfile('Admin') %>"
+                                    CausesValidation="false" />
+                            </prop:ItemTemplate>
+                          </com:TTemplateColumn>
+        </com:TDataGrid>
+
+        <!-- Edit/Create Form -->
+
+
+        <com:TPanel ID="FormSection" CssClass="form-section">
+           <h3><com:TLabel ID="FormTitle" Text="Ajouter une Habilitation" /></h3>
+            
+            <com:THiddenField ID="HabilitationId" />
+            
+            <div class="field">
+                <label>Label:</label>
+                <com:TTextBox ID="HabilitationLabel" />
+                <com:TRequiredFieldValidator ControlToValidate="HabilitationLabel" ErrorMessage="HabilitationLabel est requis." />
+            </div>
+
+            <div class="field">
+                <label>Active:</label>
+                <com:TCheckBox ID="HabilitationActive" />
+
+            </div>
+            
+            <div class="actions">
+                <com:TButton ID="SaveBtn" Text="Enregistrer"  CssClass="btn btn-save" OnClick="onSave" />
+                <com:TButton Text="Annuler" OnClick="onCancel" CssClass="btn btn-cancel" CausesValidation="false" />
+            </div>
+            
+            <com:TLabel ID="MessageLabel" ForeColor="red" />
+      
+      </com:TPanel>
+    </com:TForm>
+</com:TContent>

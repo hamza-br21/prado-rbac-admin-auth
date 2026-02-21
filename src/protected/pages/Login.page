@@ -1,0 +1,24 @@
+<com:TContent ID="MainContent">
+  <com:TForm>
+    <h1>Connexion</h1>
+    <div class="form-section">
+
+      <div class="field">
+        <label>Email :</label>
+        <com:TTextBox ID="Email" />
+        <com:TRequiredFieldValidator ControlToValidate="Email" ErrorMessage="L'email est requis." />
+        <com:TEmailAddressValidator ControlToValidate="Email" ErrorMessage="Email invalide." />
+      </div>
+
+      <div class="field">
+        <label>Mot de passe :</label>
+        <com:TTextBox ID="Password" TextMode="Password" />
+        <com:TRequiredFieldValidator ControlToValidate="Password" ErrorMessage="mot de passe est requis." />
+      </div>
+
+      <com:TButton Text="Se connecter" OnClick="onLogin" CssClass="btn btn-save" />
+      <com:TLabel ID="ErrorMsg" ForeColor="red" />
+
+    </div>
+  </com:TForm>
+</com:TContent>
