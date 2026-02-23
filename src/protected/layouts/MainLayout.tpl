@@ -62,6 +62,7 @@ nav {
     display: flex;
     gap: 20px;
     align-items: center;
+    height:50px;
 }
 
 nav a {
@@ -275,11 +276,11 @@ footer {
 </head>
 <body>
 
-    <nav>
-    <a href="?page=Home">Utilisateurs</a>
-    <a href="?page=Profiles">Profils</a>
-    <a href="?page=Habilitations">Habilitations</a>
-
+    <nav >
+      <com:TPanel ID="UserNav1"><a href="?page=Home">Utilisateurs</a> </com:TPanel>
+      <com:TPanel ID="UserNav2"><a href="?page=Profiles">Profils</a></com:TPanel>
+      <com:TPanel ID="UserNav3"><a href="?page=Habilitations">Habilitations</a></com:TPanel>
+ 
     <span style="flex:1"></span>
 
     <com:TPanel ID="UserInfoPanel">

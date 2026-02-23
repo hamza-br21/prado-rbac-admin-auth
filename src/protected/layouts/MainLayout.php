@@ -11,6 +11,7 @@ class MainLayout extends TTemplateControl
         $userId   = $session->itemAt('userId');
         $profile  = $session->itemAt('profileLabel');
         $email    = $session->itemAt('email');
+     
 
         if ($userId && $email) {
             $this->UserInfoPanel->Visible = true;
@@ -21,6 +22,10 @@ class MainLayout extends TTemplateControl
                 : $name;
         } else {
             $this->UserInfoPanel->Visible = false;
+            // $this->UserNav->Visible = false;
+            $this->UserNav1->Visible = false;
+            $this->UserNav2->Visible = false;
+            $this->UserNav3->Visible = false;
         }
     }
 }
