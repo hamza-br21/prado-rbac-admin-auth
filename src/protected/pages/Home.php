@@ -11,6 +11,30 @@ class Home extends BasePage
     public function onLoad($param)
     {
         parent::onLoad($param);
+
+         $this->Session->open();
+
+        //   var_dump($this->Session['email']);
+        // var_dump($this->Session['password']);
+        // var_dump($this->Session['habilitations']);
+        // var_dump($this->Session['userId']);
+        // var_dump($this->Session['profileLabel']);
+        // die();
+
+        $email = $this->Session['email'];
+        $password = $this->Session['password'];
+    
+         if (!isset($email) || !isset($password)) {
+            // Rediriger vers Logout si session non valide
+
+             $this->Response->redirect($this->Service->constructUrl('Logout'));
+            
+        }
+
+        // var_dump($this->Application->getUser()->getIsGuest());
+        // die();
+
+         $this->FormSection->Visible =  $this->isInProfile('Admin');
          
         if (!$this->can('CREATE_USER')) {
             $this->FormSection->Visible =  false;
@@ -19,6 +43,7 @@ class Home extends BasePage
         // var_dump($this->isInProfile('Manager'));
         // die();
         if (!$this->IsPostBack) {
+
 
         // condition pour afficher que les profiles actifs dans dropdownlist
       $this->UserProfile->DataSource = ProfileRecord :: finder()->findAll("active =TRUE");
@@ -31,6 +56,9 @@ class Home extends BasePage
 
         // var_dump($this->can('CREATE_USER'));
         // die();
+
+        $this->Session->close();
+       
     }
 
     protected function bindGrid($search = null)

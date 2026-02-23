@@ -39,12 +39,24 @@ class Login extends TPage
 
         // Créer l'AppUser et le mettre en session
         $appUser = AppUser::loadFromDb($email);
-
+        // meme je fait ici setIsGuest true il reste la valeur de BasePage
+        $this->Application->getUser()->setIsGuest(false);
         $this->Application->getUser()->setName($appUser->getName());
+        
+        
+
+        //  var_dump($this->Application->getUser()->getIsGuest());
+        // die();
         // Stocker les habilitations en session
         $this->Session['habilitations'] = $appUser->getHabilitations();
         $this->Session['userId']        = $appUser->getUserId();
         $this->Session['profileLabel']  = $appUser->getProfileLabel();
+        
+        //       ////////////////
+       
+        $this->Session['email'] = $email; 
+        $this->Session['password'] = $password; 
+
 
         // Rediriger vers Home
         $this->Response->redirect($this->Service->constructUrl('Home'));

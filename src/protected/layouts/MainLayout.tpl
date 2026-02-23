@@ -48,6 +48,11 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     background-color: #f4f6f9;
+
+    /* Nouvelles règles Flexbox */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Prend au minimum 100% de la hauteur de l'écran */
 }
 
 /* NAVIGATION */
@@ -158,14 +163,46 @@ input[type="submit"], button {
 
 /* FOOTER */
 footer {
-    margin-top: 40px;
+   
     padding: 20px;
     background: #1f2937;
     color: #e5e7eb;
     text-align: center;
     font-size: 14px;
+
+    margin-top: auto; /* C'est cette ligne magique qui pousse le footer tout en bas ! */
+    width: 100%;
 }
 
+
+/* 3. Nouveaux styles pour centrer et embellir la page de Login */
+.login-wrapper {
+    max-width: 450px; /* On réduit la largeur pour faire une belle carte */
+    margin: 50px auto; 
+}
+
+.login-wrapper label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.login-wrapper input[type="text"],
+.login-wrapper input[type="password"] {
+    width: 100%; /* Les champs prennent toute la largeur de la carte */
+    padding: 10px 12px;
+    font-size: 15px;
+    box-sizing: border-box; /* Évite que le padding casse la largeur */
+    margin-bottom: 15px;
+}
+
+.login-wrapper .btn-login {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 10px;
+}
 
 /* Base bouton */
 .btn {
@@ -239,11 +276,23 @@ footer {
 <body>
 
     <nav>
-        <a href="?page=Home">Utilisateurs</a>
-        <a href="?page=Profiles">Profils</a>
-        <a href="?page=Habilitations">Habilitations</a>
-    </nav>
+    <a href="?page=Home">Utilisateurs</a>
+    <a href="?page=Profiles">Profils</a>
+    <a href="?page=Habilitations">Habilitations</a>
 
+    <span style="flex:1"></span>
+
+    <com:TPanel ID="UserInfoPanel">
+        <span style="color:#9ca3af; font-size:13px; padding:8px 10px;">
+            <com:TLiteral ID="UserInfoText" />
+        </span>
+        <a href="?page=Logout"
+           style="background:#dc2626;color:white;padding:8px 14px;border-radius:6px;text-decoration:none;font-weight:600;"
+           onclick="return confirm('Déconnecter ?')">
+            Déconnexion
+        </a>
+    </com:TPanel>
+</nav>
     <div class="container">
         <com:TContentPlaceHolder ID="MainContent" />
     </div>

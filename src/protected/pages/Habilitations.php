@@ -11,6 +11,18 @@ class Habilitations extends BasePage
     {
         parent::onLoad($param);
 
+           
+        $email = $this->Session['email'];
+        $password = $this->Session['password'];
+    
+         if (!isset($email) || !isset($password)) {
+            // Rediriger vers Logout si session non valide
+
+             $this->Response->redirect($this->Service->constructUrl('Logout'));
+            
+        }
+         
+
          $this->FormSection->Visible =  $this->isInProfile('Admin');
     //    var_dump($this->isInProfile('Admin'));
     //    die();
@@ -153,5 +165,13 @@ class Habilitations extends BasePage
     {
         $this->SearchText->Text = '';
         $this->bindGrid();
+    }
+
+    public function changePage($sender, $param)
+    {
+        // On met à jour l'index de la page pour le HabilitationGrid
+        $this->HabilitationGrid->CurrentPageIndex = $param->NewPageIndex;
+        // On recharge les données en gardant le filtre de recherche actif
+        $this->bindGrid($this->SearchText->Text);
     }
 }

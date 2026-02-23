@@ -23,7 +23,7 @@
 
    <authorization> 
    <!-- Tout le monde doit être connecté sauf la page Login --> 
-    <allow pages="Login" users="?" />
+    <allow pages="Login,Logout" users="?" />
     <deny users="?" />
    </authorization>
 

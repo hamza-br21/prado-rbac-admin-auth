@@ -1,24 +1,34 @@
 <com:TContent ID="MainContent">
   <com:TForm>
-    <h1>Connexion</h1>
-    <div class="form-section">
+    
+    <div class="login-wrapper">
+        <h1 style="text-align: center; margin-bottom: 25px; color: #1f2937;">Connexion</h1>
+        
+        <div class="form-section" style="margin-top: 0; padding: 30px;">
+          
+          <div class="field">
+            <label>Email :</label>
+            <com:TTextBox ID="Email" />
+            <com:TRequiredFieldValidator ControlToValidate="Email" ErrorMessage="L'email est requis." Display="Dynamic" ForeColor="#dc2626" />
+            <com:TEmailAddressValidator ControlToValidate="Email" ErrorMessage="Email invalide." Display="Dynamic" ForeColor="#dc2626" />
+          </div>
 
-      <div class="field">
-        <label>Email :</label>
-        <com:TTextBox ID="Email" />
-        <com:TRequiredFieldValidator ControlToValidate="Email" ErrorMessage="L'email est requis." />
-        <com:TEmailAddressValidator ControlToValidate="Email" ErrorMessage="Email invalide." />
-      </div>
+          <div class="field">
+            <label>Mot de passe :</label>
+            <com:TTextBox ID="Password" TextMode="Password" />
+            <com:TRequiredFieldValidator ControlToValidate="Password" ErrorMessage="Le mot de passe est requis." Display="Dynamic" ForeColor="#dc2626" />
+          </div>
 
-      <div class="field">
-        <label>Mot de passe :</label>
-        <com:TTextBox ID="Password" TextMode="Password" />
-        <com:TRequiredFieldValidator ControlToValidate="Password" ErrorMessage="mot de passe est requis." />
-      </div>
+          <div style="text-align: center; margin-top: 10px;">
+            <com:TButton Text="Se connecter" OnClick="onLogin" CssClass="btn btn-save btn-login" />
+          </div>
+          
+          <div style="text-align: center; margin-top: 15px;">
+            <com:TLabel ID="ErrorMsg" ForeColor="#dc2626" Font.Bold="true" />
+          </div>
 
-      <com:TButton Text="Se connecter" OnClick="onLogin" CssClass="btn btn-save" />
-      <com:TLabel ID="ErrorMsg" ForeColor="red" />
-
+        </div>
     </div>
+
   </com:TForm>
 </com:TContent>

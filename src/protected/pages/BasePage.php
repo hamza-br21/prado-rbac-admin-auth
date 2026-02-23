@@ -14,16 +14,14 @@ public function onLoad($param)
         $user = UserRecord::finder()->findByPk($userId);
         if (!$user || !$user->active || !$user->profile || !$user->profile->active) {
             // User ou profil désactivé → déconnecter
-            $this->Application->getUser()->setIsGuest(true);
-            $this->Session->clear();
-            $this->Response->redirect($this->Service->constructUrl('Login'));
-            return;
+             $this->Response->redirect($this->Service->constructUrl('Logout'));
         }
         // Mettre à jour les habs en session
         $habs = [];
         foreach ($user->profile->habilitations as $hab) {
             if ($hab->active) $habs[] = $hab->label;
         }
+       // $this->Application->getUser()->setIsGuest(false);
         $this->Session['habilitations'] = $habs;
         $this->Session['profileLabel'] = $user->profile->label;
     }
