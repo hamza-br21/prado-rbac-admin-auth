@@ -64,23 +64,34 @@ CREATE TABLE IF NOT EXISTS users (
 
 
 INSERT INTO users (nom, email, id_profile, active) VALUES
-('hamza', 'hamza@example.com', 1, TRUE),
-('othmane', 'othmane@example.com', 3, TRUE),
-('abderrafia', 'abderrafia@example.com', 3, TRUE),
-('ilyass', 'ilyass@example.com', 3, TRUE),
-('faissal', 'faissal@example.com', 3, TRUE),
-('oussama', 'oussama@example.com', 2, TRUE),
-('khalid', 'khalid@example.com', 2, TRUE),
-('mohamed', 'mohamed@example.com', 2, TRUE),
-('soufiane', 'soufiane@example.com', 2, TRUE),
-('fatimazahra', 'fatimazahra@example.com', 3, TRUE),
-('donia', 'donia@example.com', 3, TRUE),
-('douae', 'douae@example.com', 3, TRUE),
-('akram', 'akrame@example.com', 2, TRUE),
-('ayoub', 'ayoub@example.com', 2, TRUE),
-('aissam', 'aissam@example.com', 3, TRUE);
+('hamza', 'hamza@gmail.com', 1, TRUE),
+('othmane', 'othmane@gmail.com', 3, TRUE),
+('abderrafia', 'abderrafia@gmail.com', 3, TRUE),
+('ilyass', 'ilyass@gmail.com', 3, TRUE),
+('faissal', 'faissal@gmail.com', 3, TRUE),
+('oussama', 'oussama@gmail.com', 2, TRUE),
+('khalid', 'khalid@gmail.com', 2, TRUE),
+('mohamed', 'mohamed@gmail.com', 2, TRUE),
+('soufiane', 'soufiane@gmail.com', 2, TRUE),
+('yassine', 'yassine@gmail.com', 2, TRUE),
+('fatimazahra', 'fatimazahra@gmail.com', 3, TRUE),
+('donia', 'donia@gmail.com', 3, TRUE),
+('douae', 'douae@gmail.com', 3, TRUE),
+('akram', 'akram@gmail.com', 2, TRUE),
+('ayoub', 'ayoub@gmail.com', 2, TRUE),
+('aissam', 'aissam@gmail.com', 3, TRUE),
+('ahlam', 'ahlam@gmail.com', 3, TRUE),
+('imane', 'imane@gmail.com', 3, TRUE),
+('ihssane', 'ihssane@gmail.com', 3, TRUE),
+('marouane', 'marouane@gmail.com', 2, TRUE),
+('douha', 'douha@gmail.com', 3, TRUE);
 
 
-UPDATE users SET password = '$2a$12$GGkG6YO0df.DHrMyGWXCWuvvMspJR1.CZ1qLKqIcXiElzGUP8EKHe' WHERE email = 'hamza@example.com';
-UPDATE users SET password = '$2a$12$WfiCdpR.YhOsb6ZIHwRG4.5SAMP/RS7j4dDUUrkJRdHQ2tTvff1TG' WHERE email = 'khalid@example.com';
-UPDATE users SET password = '$2a$12$sQVgrCO8KCbl5LUGwwI7eu49cPN.QKDKLBldeiOe6N2uk2jANs8Ky' WHERE email = 'othmane@example.com';
+UPDATE users SET password = '$2a$12$GGkG6YO0df.DHrMyGWXCWuvvMspJR1.CZ1qLKqIcXiElzGUP8EKHe' WHERE email = 'hamza@gmail.com';
+UPDATE users SET password = '$2a$12$WfiCdpR.YhOsb6ZIHwRG4.5SAMP/RS7j4dDUUrkJRdHQ2tTvff1TG' WHERE email = 'khalid@gmail.com';
+UPDATE users SET password = '$2a$12$WfiCdpR.YhOsb6ZIHwRG4.5SAMP/RS7j4dDUUrkJRdHQ2tTvff1TG' WHERE email = 'soufiane@gmail.com';
+UPDATE users SET password = '$2a$12$sQVgrCO8KCbl5LUGwwI7eu49cPN.QKDKLBldeiOe6N2uk2jANs8Ky' WHERE email = 'othmane@gmail.com';
+UPDATE users SET password = '$2a$12$sQVgrCO8KCbl5LUGwwI7eu49cPN.QKDKLBldeiOe6N2uk2jANs8Ky' WHERE email = 'ilyass@gmail.com';
+UPDATE users SET password = '$2a$12$sQVgrCO8KCbl5LUGwwI7eu49cPN.QKDKLBldeiOe6N2uk2jANs8Ky' WHERE email = 'faissal@gmail.com';
+UPDATE users SET password = '$2a$12$sQVgrCO8KCbl5LUGwwI7eu49cPN.QKDKLBldeiOe6N2uk2jANs8Ky' WHERE email = 'abderrafia@gmail.com';
+UPDATE users SET password = '$2a$12$sQVgrCO8KCbl5LUGwwI7eu49cPN.QKDKLBldeiOe6N2uk2jANs8Ky' WHERE email = 'douha@gmail.com';
